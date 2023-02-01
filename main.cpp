@@ -1,4 +1,7 @@
 #include <iostream>
+#include "ClientFeedback.h"
+#include "SmartClient.h"
+#include "LockBox.h"
 
 using namespace std;
 
