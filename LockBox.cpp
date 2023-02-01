@@ -41,4 +41,22 @@ std::vector<int> lockBox::generateCombination(int n, int m)
 
     return comb;
 
-}
+} // closes combination generator function
+
+int lockBox::correctLocation(lockBox input)
+{
+
+    int count = 0;
+
+    for(int i = 0; i < combination.size(); i++){
+
+        if(combination[i] == input.combination[i])
+        {
+            count++;
+        }
+
+    }
+
+    return count;
+
+} // closes correct location function
