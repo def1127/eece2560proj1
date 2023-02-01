@@ -1,6 +1,7 @@
 #include "LockBox.h"
 #include <ctime>
 #include <random>
+#include <algorithm>
 
 lockBox::lockBox()
 {
@@ -60,3 +61,31 @@ int lockBox::correctLocation(lockBox input)
     return count;
 
 } // closes correct location function
+
+int lockBox::incorrectLocation(lockBox input)
+{
+
+    int count = 0;
+    std::vector<int> alreadyCounted;
+
+    for(int i = 0; i < combination.size(); i++)
+    {
+
+        alreadyCounted.push_back(combination[i]);
+
+        for(int j = 0; j < input.combination.size(); j++)
+        {
+            if(combination[i] == input.combination[j])
+            {
+                if(std::find(alreadyCounted.begin(), alreadyCounted.end(), combination[i]) != alreadyCounted.end())
+                {
+                    count++;
+                }
+            }
+        }
+
+    }
+
+    return count - correctLocation(input);
+
+}
