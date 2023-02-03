@@ -1,0 +1,18 @@
+GCC = g++
+CFLAGS = -g -O3 -Wall -std=c++11
+OBJS = main.o LockBox.o ClientFeedback.o
+
+main: $(OBJS)
+	$(GCC) $(OBJS) -o main
+
+main.o: LockBox.h LockBox.cpp ClientFeedback.h ClientFeedback.cpp
+	$(GCC) $(CFLAGS) -c main.cpp
+
+LockBox.o: LockBox.h
+	$(GCC) $(CFLAGS) -c LockBox.cpp
+
+ClientFeedback.o: ClientFeedback.h
+	$(GCC) $(CFLAGS) -c ClientFeedback.cpp
+
+clean:
+	rm -f LockBox.o main.o ClientFeedback.o
