@@ -9,6 +9,7 @@ class lockBox
     lockBox();
     lockBox(int n, int m);
     lockBox(std::vector<int> input);
+    std::vector<int> printCombination();
 
     private:
     std::vector<int> combination;

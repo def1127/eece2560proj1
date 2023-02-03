@@ -2,6 +2,7 @@
 #include <ctime>
 #include <random>
 #include <algorithm>
+#include <iostream>
 
 lockBox::lockBox()
 {
@@ -61,6 +62,12 @@ int lockBox::correctLocation(lockBox input)
     return count;
 
 } // closes correct location function
+
+std::vector<int> lockBox::printCombination()
+{
+        return combination;
+
+}
 
 int lockBox::incorrectLocation(lockBox input)
 {
