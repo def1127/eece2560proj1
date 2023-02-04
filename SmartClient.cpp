@@ -100,5 +100,10 @@ void SmartClient::openLockBox()
         std::cout << "\nNo more guesses! Lock Box disabled" << std::endl;
     }
 
+    else
+    {
+        std::cout << "\nLock Box opened!" << std::endl;     
+    }
+
 
 }
