@@ -1,9 +1,12 @@
 #include <vector>
 
+#ifndef _LOCKBOX
+#define _LOCKBOX
+
 class lockBox
 {
 
-    public:
+public:
     int correctLocation(lockBox input);
     int incorrectLocation(lockBox input);
     lockBox();
@@ -11,8 +14,10 @@ class lockBox
     lockBox(std::vector<int> input);
     std::vector<int> printCombination();
 
-    private:
+private:
     std::vector<int> combination;
     std::vector<int> generateCombination(int n, int m);
 
 };
+
+#endif

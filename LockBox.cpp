@@ -13,7 +13,7 @@ lockBox::lockBox()
 
 lockBox::lockBox(int n, int m)
 {
-    
+
     combination = generateCombination(n, m);
 
 }
@@ -62,7 +62,7 @@ int lockBox::correctLocation(lockBox input)
 
 std::vector<int> lockBox::printCombination()
 {
-        return combination;
+    return combination;
 
 }
 
