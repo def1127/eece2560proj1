@@ -1,7 +1,7 @@
 #include <iostream>
-#include "ClientFeedback.h"
 #include "SmartClient.h"
 #include "LockBox.h"
+#include "ClientFeedback.h"
 #include <chrono>
 #include <thread>
 
@@ -11,6 +11,9 @@ int main()
 {
 
     int digits, range;
+
+    std::vector<int> input;
+
 
     cout << "Enter number of digits in combination: ";
     cin >> digits;
@@ -31,12 +34,9 @@ int main()
     cout << "\nGenerating combination...\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
-    lockBox secret(digits, range);
 
-    std::vector<int> combination = secret.printCombination();
-
-    for(int i: combination)
-        cout << combination[i] << " ";
+    SmartClient instance(digits,range);
+    instance.openLockBox();
 
     return 0;
 
