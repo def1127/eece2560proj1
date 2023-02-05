@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 
+/* Constructs a lockbox object with a combination of length three (with each digit between 0 and 9).*/
 lockBox::lockBox()
 {
     //default constructor
@@ -11,6 +12,7 @@ lockBox::lockBox()
 
 }
 
+/* Constructs a lockbox object with a combination of n length (with each digit between 0 and m).*/
 lockBox::lockBox(int n, int m)
 {
 
@@ -18,6 +20,7 @@ lockBox::lockBox(int n, int m)
 
 }
 
+/* Construct a lockbox object with combination that matches int vector. */
 lockBox::lockBox(std::vector<int> input)
 {
 
@@ -25,6 +28,7 @@ lockBox::lockBox(std::vector<int> input)
 
 }
 
+/* Generates a combination of random digits (int vector) of length n with each digit in range 0 - m. */
 std::vector<int> lockBox::generateCombination(int n, int m)
 {
 
@@ -42,6 +46,7 @@ std::vector<int> lockBox::generateCombination(int n, int m)
 
 } // closes combination generator function
 
+/* Returns the number of digits (int) where the numbers and positions match in input lockbox and in object. */
 int lockBox::correctLocation(lockBox input)
 {
 
@@ -60,12 +65,14 @@ int lockBox::correctLocation(lockBox input)
 
 } // closes correct location function
 
+/* Prints out the lockboc combination in console.*/
 std::vector<int> lockBox::printCombination()
 {
     return combination;
 
 }
 
+/* Returns the number of singular ints (int) that are in input lockbox that are also in object in the incorrect location. */
 int lockBox::incorrectLocation(lockBox input)
 {
 

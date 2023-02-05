@@ -4,20 +4,21 @@
 #include "SmartClient.h"
 #include <algorithm>
 
-
+/* Constructs a smart client object that generates a lockbox object with inputs (5,10). */
 SmartClient::SmartClient()
 {
     lockBox newBox(5,10);
     secretBox = newBox;
-
 }
 
+/* Constructs a smart client object that generates a lockbox object with inputs (n,m). */
 SmartClient::SmartClient(int n, int m)
 {
     lockBox newBox(n,m);
     secretBox = newBox;
 }
 
+/* Prints secret combination stored in secretBox. */
 void SmartClient::printSecretCode()
 {
     std::vector<int> combination = secretBox.printCombination();
@@ -25,11 +26,13 @@ void SmartClient::printSecretCode()
         std::cout << combination[i] << " ";
 }
 
+/* Returns a lock box object with the combination of the input int vector. */
 lockBox SmartClient::clientGuess(std::vector<int> input) const
 {
-    return input;
+    return lockBox(input);
 }
 
+/* Returns a client feedback object that stores the guesses matching input lockbox. */
 ClientFeedback SmartClient::getFeedback(lockBox box)
 {
     ClientFeedback feedback;//need to be able to setResponse;
@@ -37,11 +40,15 @@ ClientFeedback SmartClient::getFeedback(lockBox box)
     return feedback;
 }
 
+/* Checks to see if feedback object guesses show that lockbox is opened (0, non-zero). */
 bool SmartClient::isOpened(const ClientFeedback& feedback) const
 {
     //check if none are incorrectly placed AND that number of correctly guessed is nonzero
     return feedback.getResponse()[1] == 0 && feedback.getResponse()[0] != 0;
 }
+
+/* Initializes lockbox with random combination and lets user guess combination through console. */
+/* After ten guesses the guessing feature becomes disabled. */
 void SmartClient::openLockBox()
 {
     /**Guess count to keep track of # of client's guesses,
@@ -104,6 +111,5 @@ void SmartClient::openLockBox()
     {
         std::cout << "\nLock Box opened!" << std::endl;     
     }
-
 
 }
