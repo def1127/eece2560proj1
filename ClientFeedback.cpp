@@ -9,7 +9,7 @@ ClientFeedback::ClientFeedback()
 }
 
 /* Set the responses int vector to the {incorrectResponse, correctResponse}. */
-void ClientFeedback::setResponse(int incorrectResponse, int correctResponse)
+void ClientFeedback::setResponse(int correctResponse, int incorrectResponse)
 {
     std::vector<int> v{correctResponse,incorrectResponse};
     responses = v;
