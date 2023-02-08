@@ -99,6 +99,6 @@ int lockBox::incorrectLocation(lockBox input)
 
     }
 
-    return count;
+    return count - correctLocation(input);
 
 }
