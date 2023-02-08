@@ -18,4 +18,4 @@ SmartClient.o: SmartClient.h
 	$(GCC) $(CFLAGS) -c SmartClient.cpp
 
 clean:
-	rm -f LockBox.o main.o ClientFeedback.o
+	rm -f $(OBJS)
