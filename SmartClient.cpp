@@ -102,6 +102,8 @@ void SmartClient::openLockBox()
         if(isOpened(feedback) || guessCount == 10){
             break;
         }
+
+        input.clear();
     }
 
     if (guessCount == 10)
