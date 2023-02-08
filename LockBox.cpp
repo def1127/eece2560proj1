@@ -91,6 +91,11 @@ int lockBox::incorrectLocation(lockBox input)
         }
     }
 
+    //If both combination and input combination empty after removal, return 0 incorrect locations
+    if (input_dupe.empty() && combo_dupe.empty()){
+        return 0;
+    }
+
     // Counting incorrect locations
     for (int i = 0; i < input_dupe.size(); i++){
         // Checks if element is not in dupe_check
