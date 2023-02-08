@@ -83,29 +83,26 @@ int lockBox::incorrectLocation(lockBox input)
     std::vector<int> combo_dupe = combination;
     std::vector<int> input_dupe = input.combination;
 
-    // Garbage values for correct val locations
+    // Removes values for correct val locations
     for (int i = 0; i < input_dupe.size(); i++){
-        if (input_dupe[i] == combo_dupe[i]){
-            input_dupe[i] = -1;
-            combo_dupe[i] = -1;
+        if (i < combo_dupe.size() && input_dupe[i] == combo_dupe[i]){
+            input_dupe.erase(input_dupe.begin()+i);
+            combo_dupe.erase(combo_dupe.begin()+i);
         }
     }
 
     // Counting incorrect locations
     for (int i = 0; i < input_dupe.size(); i++){
-        // Checks if input_dupe pos value is not garbage
-        if (input_dupe[i]!=-1){
-            // Checks if element is not in dupe_check
-            if (find(dupe_check.begin(),dupe_check.end(),input_dupe[i])==dupe_check.end()) {
-                // Checks if element is in combination
-                if ( find(combo_dupe.begin(),combo_dupe.end(),input_dupe[i])!=combo_dupe.end()){
-                    // Adds to incorrect location count if in combination
-                    count++;
-                }
-                // Adds element to dupe_check
-                dupe_check.push_back(input_dupe[i]);
-            } 
-        }
+        // Checks if element is not in dupe_check
+        if (find(dupe_check.begin(),dupe_check.end(),input_dupe[i])==dupe_check.end()) {
+            // Checks if element is in combination
+            if ( find(combo_dupe.begin(),combo_dupe.end(),input_dupe[i])!=combo_dupe.end()){
+                // Adds to incorrect location count if in combination
+                count++;
+            }
+            // Adds element to dupe_check so no repeat counts
+            dupe_check.push_back(input_dupe[i]);
+        } 
     }
 
     return count;
