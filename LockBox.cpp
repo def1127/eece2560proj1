@@ -88,12 +88,8 @@ int lockBox::incorrectLocation(lockBox input)
         if (i < combo_dupe.size() && input_dupe[i] == combo_dupe[i]){
             input_dupe.erase(input_dupe.begin()+i);
             combo_dupe.erase(combo_dupe.begin()+i);
+            i--;
         }
-    }
-
-    //If both combination and input combination empty after removal, return 0 incorrect locations
-    if (input_dupe.empty() && combo_dupe.empty()){
-        return 0;
     }
 
     // Counting incorrect locations
