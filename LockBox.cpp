@@ -54,6 +54,8 @@ int lockBox::correctLocation(lockBox input)
 
     for(int i = 0; i < combination.size(); i++){
 
+        std::cout << "Combination: " << combination[i] << " Guess: " << input.combination[i] << std::endl; 
+
         if(combination[i] == input.combination[i])
         {
             count++;
@@ -97,6 +99,6 @@ int lockBox::incorrectLocation(lockBox input)
 
     }
 
-    return count - correctLocation(input);
+    return count;
 
 }
