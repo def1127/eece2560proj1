@@ -12,6 +12,7 @@ class SmartClient{
 private:
     /* Private lockbox object that stores generated combination. */
     lockBox secretBox;
+    int comboLength;
 public:
     /* Constructs a smart client object that generates a lockbox object with inputs (5,10). */
     SmartClient();

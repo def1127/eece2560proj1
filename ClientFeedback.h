@@ -17,7 +17,7 @@ public:
     /* Constructs a client feedback object that stores a base null int vector of {0,0} of responses. */
     ClientFeedback();
     /* Set the responses int vector to the {incorrectResponse, correctResponse}. */
-    void setResponse(int incorrectResponse, int correctResponse);
+    void setResponse(int correctResponse, int incorrectResponse);
     /* Returns the response int vector stored in client feedback object. */
     std::vector<int> getResponse() const;
     /* Overrides == operator for proper comparision between client feedback objects. */

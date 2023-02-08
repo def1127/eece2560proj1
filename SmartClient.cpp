@@ -9,6 +9,7 @@ SmartClient::SmartClient()
 {
     lockBox newBox(5,10);
     secretBox = newBox;
+    comboLength = 5;
 }
 
 /* Constructs a smart client object that generates a lockbox object with inputs (n,m). */
@@ -16,6 +17,7 @@ SmartClient::SmartClient(int n, int m)
 {
     lockBox newBox(n,m);
     secretBox = newBox;
+    comboLength = n;
 }
 
 /* Prints secret combination stored in secretBox. */
@@ -44,7 +46,7 @@ ClientFeedback SmartClient::getFeedback(lockBox box)
 bool SmartClient::isOpened(const ClientFeedback& feedback) const
 {
     //check if none are incorrectly placed AND that number of correctly guessed is nonzero
-    return feedback.getResponse()[1] == 0 && feedback.getResponse()[0] != 0;
+    return feedback.getResponse()[1] == 0 && feedback.getResponse()[0] == comboLength;
 }
 
 /* Initializes lockbox with random combination and lets user guess combination through console. */
