@@ -25,7 +25,7 @@ void SmartClient::printSecretCode()
 {
     std::vector<int> combination = secretBox.printCombination();
     for(int i: combination)
-        std::cout << combination[i] << " ";
+        std::cout << i << " ";
 }
 
 /* Returns a lock box object with the combination of the input int vector. */
