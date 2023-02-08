@@ -80,8 +80,8 @@ void SmartClient::openLockBox()
         }
 
         //Rectify vector order
-        for (iter = input.begin(); iter != input.end(); iter++)
-            std::reverse(input.begin(), input.end());
+        // for (iter = input.begin(); iter != input.end(); iter++)
+        //     std::reverse(input.begin(), input.end());
 
         //Create lockBox object out of input vector
         lockBox guessBox = clientGuess(input);
