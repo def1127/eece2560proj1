@@ -81,6 +81,13 @@ int lockBox::incorrectLocation(lockBox input)
     int count = 0;
     std::vector<int> alreadyCounted;
 
+    int correct = correctLocation(input);
+
+    if(correct == combination.size())
+    {
+        return 0;
+    }
+
     for(int i = 0; i < combination.size(); i++)
     {
 
