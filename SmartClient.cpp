@@ -1,10 +1,20 @@
+/*********************************************************************************************
+ * File name: SmartClient.cpp
+ * Purpose: Implements the SmartClient class methods
+ */
 
+/* System Libraries */
+#include <algorithm>
+
+/* User Libraries */
 #include "LockBox.h"
 #include "ClientFeedback.h"
 #include "SmartClient.h"
-#include <algorithm>
 
-/* Constructs a smart client object that generates a lockbox object with inputs (5,10). */
+
+/**Constructs a smart client object that generates a lockBox object with inputs (5,10)
+ * @post A new smart client object is created
+ */
 SmartClient::SmartClient()
 {
     lockBox newBox(5,10);
@@ -12,7 +22,11 @@ SmartClient::SmartClient()
     comboLength = 5;
 }
 
-/* Constructs a smart client object that generates a lockbox object with inputs (n,m). */
+/**Constructs a smart client object that generates a lockBox object with inputs (5,10)
+ * @post A new smart client object is created
+ * @param n The length value for the combination
+ * @param m The range value for the combination
+ */
 SmartClient::SmartClient(int n, int m)
 {
     lockBox newBox(n,m);
@@ -20,7 +34,7 @@ SmartClient::SmartClient(int n, int m)
     comboLength = n;
 }
 
-/* Prints secret combination stored in secretBox. */
+/**Prints secret combination stored in secretBox */
 void SmartClient::printSecretCode()
 {
     std::vector<int> combination = secretBox.printCombination();
@@ -28,13 +42,17 @@ void SmartClient::printSecretCode()
         std::cout << i << " ";
 }
 
-/* Returns a lock box object with the combination of the input int vector. */
+/**Returns a lock box object with the combination of the input int vector.
+ * @param input A vector of type integer which stores the client's guess
+ * @return lockBox object which stores the client's guess*/
 lockBox SmartClient::clientGuess(std::vector<int> input) const
 {
     return lockBox(input);
 }
 
-/* Returns a client feedback object that stores the guesses matching input lockbox. */
+/** Returns a client feedback object that stores the guesses matching input lockbox.
+ * @param box A lockBox object
+ * @return ClientFeedback object which stores the response to a client's guess*/
 ClientFeedback SmartClient::getFeedback(lockBox box)
 {
     ClientFeedback feedback;//need to be able to setResponse;
@@ -42,15 +60,19 @@ ClientFeedback SmartClient::getFeedback(lockBox box)
     return feedback;
 }
 
-/* Checks to see if feedback object guesses show that lockbox is opened (0, non-zero). */
+/** Checks to see if feedback object guesses show that lockBox is opened (0, non-zero).
+ * @param feedback reference to the memory location in which ClientFeedback object is stored*/
 bool SmartClient::isOpened(const ClientFeedback& feedback) const
 {
     //check if none are incorrectly placed AND that number of correctly guessed is nonzero
     return feedback.getResponse()[1] == 0 && feedback.getResponse()[0] == comboLength;
 }
 
-/* Initializes lockbox with random combination and lets user guess combination through console. */
-/* After ten guesses the guessing feature becomes disabled. */
+/** Initializes lockBox with random combination and lets user guess combination through console.
+ * After ten guesses the guessing feature becomes disabled.
+ * @param None
+ * @return None
+ * */
 void SmartClient::openLockBox()
 {
     /**Guess count to keep track of # of client's guesses,
@@ -113,7 +135,7 @@ void SmartClient::openLockBox()
 
     else
     {
-        std::cout << "\nLock Box opened!" << std::endl;     
+        std::cout << "\nLock Box opened!" << std::endl;
     }
 
 }
