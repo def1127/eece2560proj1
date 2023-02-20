@@ -11,8 +11,6 @@
 
 /*System Libraries*/
 #include <iostream>
-#include <chrono>
-#include <thread>
 
 /*User Libraries*/
 #include "SmartClient.h"
@@ -52,7 +50,6 @@ int main()
 
     /*Use time to help randomize secret combination*/
     cout << "\nGenerating combination...\n";
-    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
     /*Declare instance of SmartClient object, with user input as parameters*/
     SmartClient instance(digits,range);
