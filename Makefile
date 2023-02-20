@@ -1,5 +1,5 @@
 GCC = g++
-CFLAGS = -g -O3 -Wall
+CFLAGS = -g -O3 -Wall -std=c++11
 OBJS = main.o LockBox.o ClientFeedback.o SmartClient.o
 
 main: $(OBJS)
